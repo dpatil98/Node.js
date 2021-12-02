@@ -8,7 +8,8 @@ import { moviesRouter } from './routes/moviesCURD.js';
 dotenv.config(); //all keys it wil put in process.env
 
 export const app=express(); 
-const port = 9000;
+const port = process.env.PORT; //hiroku will auto-asign available port
+//const port = 9000;
 
 //middleware
 

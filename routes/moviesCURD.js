@@ -4,7 +4,7 @@ import express from 'express';
 const router = express.Router();
 
 //---------------------Get By ID-----------------------------------------------------
-router.get('/movies/:id', async (request, response) => {
+router.get('/:id', async (request, response) => {
 
     console.log(request.params);
     const { id } = request.params;
@@ -109,5 +109,48 @@ router.put("/:id", async (request, response) => {
     //  deleted.deletedCount>0 ? response.send(deleted) :response.status(404).send({message : " Movie 404"});
     response.send(movie);
 });
+
+
+// router.route("/")
+// .get('/', async (request, response) => {
+//     //task :http://localhost:9000/movies?language=english
+//     //  const {language} = request.query;
+//     //  const {rating} = request.query;
+//     //     let Filtermovies=movies;
+//     //     if(language)
+//     //     {
+//     //         Filtermovies = Filtermovies.filter( (mv) => mv.language === language );
+//     //     }
+//     //     if(rating)
+//     //     {
+//     //         Filtermovies = Filtermovies.filter( (mv) => mv.rating >= rating );
+//     //     }
+//     //    // movie ? response.send(movie) :response.status(404).send({message : " Movie 404"});
+//     //   ---- Code for Getting all movies from mongoDB ------
+//     //db.movies.find({});
+//     const Filter = request.query;
+//     console.log(Filter);
+//     if (Filter.rating) {
+//         Filter.rating = parseFloat(Filter.rating);
+//     }
+
+
+//     const Filtermovies = await getAllMovies(Filter); //cursor to array
+
+
+//     // console.log(Filtermovies);
+//     //cursor- pegination //for ex when u google something u only get 20 results 
+//     response.send(Filtermovies);
+
+// })
+// .post('/', async (request, response) => {
+
+//     const data = request.body;
+//     console.log(data);
+//     const results = await postMovies(data);
+//     response.send(results);
+
+// });
+
 
 export const moviesRouter =router;
